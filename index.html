@@ -1,0 +1,74 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!--<script type="text/javascript" src="jquery.js"></script>-->
+<script type="text/javascript" src="model.js"></script>
+<script type="text/javascript" src="content.js"></script>
+<style>
+table{
+table-layout:fixed ; 
+	border:none;
+	border-collapse:collapse;
+	border-color:#339955;
+}
+table td{
+	
+	overflow:hidden;
+	text-align:center;
+}
+*{
+overflow:hidden;
+	text-align:center;
+	font-size:12px;
+}
+</style>
+<title>无标题文档</title>
+</head>
+
+<body onLoad="play()">
+<script>
+function play(){
+	window.game = Con();
+	game.begin();
+}
+
+  
+document.onkeyup = function(e) {
+	var keyCode=0,e=e||event;
+	keyCode=e.keyCode||e.which||e.charCode;
+   if (keyCode == 37) {
+		game.turn(-1);
+	} else if (keyCode == 39) {
+		game.turn(1);
+	}
+	else if (keyCode == 32) {
+		game.pause();
+	}
+	else if (keyCode == 13) {
+		game.begin();
+}
+  
+};
+
+
+</script>
+<div style="text-align:center; width:100%">
+ <table border="1" align="center">
+  <tr>
+    <td><table width="400" border="1" id="content" >
+</table></td>
+    <td valign="top"><table width="100" border="1">
+        <tr>
+          <td>得分</td>
+        </tr>
+        <tr>
+          <td id="score">0</td>
+        </tr>
+      </table></td>
+  </tr>
+</table>
+<p>说明：左←右→移动</p>
+<p>空格Space暂停，回车Enter继续</p>
+</div>
+</body>
+</html>
